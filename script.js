@@ -1,3 +1,11 @@
+// ---------- Vídeo de fundo ----------
+// Respeita quem tem "reduzir movimento" ativado no sistema
+const bgVideo = document.getElementById("bg-video");
+if (bgVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  bgVideo.pause();
+  bgVideo.removeAttribute("autoplay");
+}
+
 // ---------- Tela de carregamento ----------
 // Só pra dar aquele efeito de "entrando no perfil". Some sozinha depois de um tempinho.
 window.addEventListener("load", () => {
