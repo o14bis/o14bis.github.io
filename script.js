@@ -2,13 +2,42 @@
 const radio = document.getElementById("radio");
 const radioToggle = document.getElementById("radio-toggle");
 
+function playRadio() {
+  radio.play()
+    .then(() => radioToggle.setAttribute("aria-pressed", "true"))
+    .catch((err) => {
+      console.error("Não consegui tocar o rádio:", err);
+      radioToggle.setAttribute("aria-pressed", "false");
+    });
+}
+
 radioToggle.addEventListener("click", () => {
   if (radio.paused) {
-    radio.play();
-    radioToggle.setAttribute("aria-pressed", "true");
+    playRadio();
   } else {
     radio.pause();
     radioToggle.setAttribute("aria-pressed", "false");
+  }
+});
+
+// ---------- Tela de carregamento ----------
+// Precisa de um clique (exigência dos navegadores pra poder tocar áudio),
+// e esse mesmo clique já dispara o rádio.
+const loading = document.getElementById("loading");
+const app = document.getElementById("app");
+
+function enterSite() {
+  playRadio();
+  loading.classList.add("fade-out");
+  app.classList.remove("hidden");
+  setTimeout(() => loading.remove(), 500);
+}
+
+loading.addEventListener("click", enterSite);
+loading.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    enterSite();
   }
 });
 
@@ -19,21 +48,6 @@ if (bgVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   bgVideo.pause();
   bgVideo.removeAttribute("autoplay");
 }
-
-// ---------- Tela de carregamento ----------
-// Só pra dar aquele efeito de "entrando no perfil". Some sozinha depois de um tempinho.
-// Usa DOMContentLoaded (não "load") pra não ficar esperando o vídeo de fundo
-// terminar de baixar inteiro antes de sumir.
-document.addEventListener("DOMContentLoaded", () => {
-  const loading = document.getElementById("loading");
-  const app = document.getElementById("app");
-
-  setTimeout(() => {
-    loading.classList.add("fade-out");
-    app.classList.remove("hidden");
-    setTimeout(() => loading.remove(), 500);
-  }, 500);
-});
 
 // ---------- Abas (Sobre mim / Mídias / Links) ----------
 const tabs = document.querySelectorAll(".tab");
