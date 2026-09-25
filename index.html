@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>14 bis</title>
+<meta name="description" content="Perfil pessoal do 14 bis">
+<meta name="theme-color" content="#0d1a14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Tela de carregamento -->
+  <div id="loading" aria-hidden="true">
+    <div class="loading-mark">
+      <span class="loading-dot"></span>
+      <span class="loading-dot"></span>
+      <span class="loading-dot"></span>
+    </div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <main id="app" class="hidden">
+    <div class="card">
+
+      <!-- Capa (placeholder). Troque o background em style.css (.cover) por uma imagem sua quando quiser -->
+      <div class="cover"></div>
+
+      <div class="identity">
+        <div class="avatar" aria-hidden="true">14</div>
+
+        <div class="name-row">
+          <h1>14 bis</h1>
+          <!-- nod discreto ao avião do Santos Dumont. pode apagar essa svg + o span se não fizer sentido pra você -->
+          <span class="plane" title="14-Bis, Santos Dumont">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 12l19-7-5 7 5 7-19-7z"/>
+              <path d="M2 12h13"/>
+            </svg>
+          </span>
+        </div>
+
+        <!-- Edite essa bio curta como quiser -->
+        <p class="tagline">by preguiça de subir foto do celular pro pc</p>
+      </div>
+
+      <!-- Abas -->
+      <div class="tabs" role="tablist" aria-label="Seções do perfil">
+        <button class="tab active" role="tab" aria-selected="true" aria-controls="panel-sobre" id="tab-sobre">Sobre mim</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-midias" id="tab-midias">Mídias</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-links" id="tab-links">Links</button>
+      </div>
+
+      <!-- Painel: Sobre mim -->
+      <section class="panel active" id="panel-sobre" role="tabpanel" aria-labelledby="tab-sobre">
+        <!-- Troque esse texto pelo seu -->
+        <p>
+          Fala! Aqui é o 14 bis. Ainda montando essa página, mas a ideia é contar
+          um pouco sobre quem eu sou, no que eu curto mexer e o que ando fazendo.
+          Edita esse parágrafo no <code>index.html</code> quando quiser.
+        </p>
+      </section>
+
+      <!-- Painel: Mídias -->
+      <section class="panel" id="panel-midias" role="tabpanel" aria-labelledby="tab-midias" hidden>
+        <p class="panel-hint">clique numa imagem pra dar zoom</p>
+        <div class="media-grid">
+          <button class="media-item" data-index="0"><span>foto 1</span></button>
+          <button class="media-item" data-index="1"><span>foto 2</span></button>
+          <button class="media-item" data-index="2"><span>foto 3</span></button>
+          <button class="media-item" data-index="3"><span>foto 4</span></button>
+          <button class="media-item" data-index="4"><span>foto 5</span></button>
+          <button class="media-item" data-index="5"><span>foto 6</span></button>
+        </div>
+      </section>
+
+      <!-- Painel: Links -->
+      <section class="panel" id="panel-links" role="tabpanel" aria-labelledby="tab-links" hidden>
+        <ul class="link-list">
+          <li>
+            <!-- troque href="#" pelo link real do seu perfil Steam -->
+            <a href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 2C6.8 2 2.5 5.9 2 10.9l5.3 2.2c.4-.3.9-.5 1.5-.5h.1l2.4-3.4v-.1c0-1.9 1.5-3.4 3.4-3.4s3.4 1.5 3.4 3.4-1.5 3.4-3.4 3.4h-.1l-3.3 2.4v.1c0 1.5-1.2 2.7-2.7 2.7-1.3 0-2.4-.9-2.6-2.2L2.3 14C3.4 18.5 7.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/>
+              </svg>
+              <span>Steam</span>
+            </a>
+          </li>
+          <!--
+            pra adicionar mais links, copia esse bloco <li>...</li> e troca
+            o href, o ícone (svg) e o texto do <span>
+          -->
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Lightbox de zoom das mídias -->
+  <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <div class="lightbox-content"><span id="lightbox-label"></span></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

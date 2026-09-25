@@ -1,0 +1,54 @@
+// ---------- Tela de carregamento ----------
+// Só pra dar aquele efeito de "entrando no perfil". Some sozinha depois de um tempinho.
+window.addEventListener("load", () => {
+  const loading = document.getElementById("loading");
+  const app = document.getElementById("app");
+
+  setTimeout(() => {
+    loading.classList.add("fade-out");
+    app.classList.remove("hidden");
+    setTimeout(() => loading.remove(), 500);
+  }, 500);
+});
+
+// ---------- Abas (Sobre mim / Mídias / Links) ----------
+const tabs = document.querySelectorAll(".tab");
+const panels = document.querySelectorAll(".panel");
+
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    tabs.forEach((t) => {
+      t.classList.remove("active");
+      t.setAttribute("aria-selected", "false");
+    });
+    panels.forEach((p) => {
+      p.classList.remove("active");
+      p.hidden = true;
+    });
+
+    tab.classList.add("active");
+    tab.setAttribute("aria-selected", "true");
+
+    const panel = document.getElementById(tab.getAttribute("aria-controls"));
+    panel.classList.add("active");
+    panel.hidden = false;
+  });
+});
+
+// ---------- Lightbox das mídias ----------
+// Por enquanto os itens são só placeholders (quadrados com texto).
+// Quando você trocar por <img> de verdade, é só usar o src da imagem aqui dentro.
+const mediaItems = document.querySelectorAll(".media-item");
+const lightbox = document.getElementById("lightbox");
+const lightboxLabel = document.getElementById("lightbox-label");
+
+mediaItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    lightboxLabel.textContent = item.querySelector("span").textContent;
+    lightbox.classList.remove("hidden");
+  });
+});
+
+lightbox.addEventListener("click", () => {
+  lightbox.classList.add("hidden");
+});
