@@ -8,8 +8,15 @@ function playRadio() {
     .catch((err) => {
       console.error("Não consegui tocar o rádio:", err);
       radioToggle.setAttribute("aria-pressed", "false");
+      radioToggle.querySelector("span").textContent = "rádio: erro ao tocar";
     });
 }
+
+// Se nenhuma das fontes acima (todas as <source>) conseguir carregar, mostra isso no botão
+radio.addEventListener("error", () => {
+  console.error("Erro no elemento de áudio:", radio.error);
+  radioToggle.querySelector("span").textContent = "rádio indisponível";
+});
 
 radioToggle.addEventListener("click", () => {
   if (radio.paused) {
