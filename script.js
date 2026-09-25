@@ -1,3 +1,17 @@
+// ---------- Rádio de fundo ----------
+const radio = document.getElementById("radio");
+const radioToggle = document.getElementById("radio-toggle");
+
+radioToggle.addEventListener("click", () => {
+  if (radio.paused) {
+    radio.play();
+    radioToggle.setAttribute("aria-pressed", "true");
+  } else {
+    radio.pause();
+    radioToggle.setAttribute("aria-pressed", "false");
+  }
+});
+
 // ---------- Vídeo de fundo ----------
 // Respeita quem tem "reduzir movimento" ativado no sistema
 const bgVideo = document.getElementById("bg-video");
