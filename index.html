@@ -13,6 +13,12 @@
 </head>
 <body>
 
+  <!-- Vídeo de fundo (gameplay), mudo e em loop -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="imgs/background.mp4" type="video/mp4">
+  </video>
+  <div class="bg-overlay" aria-hidden="true"></div>
+
   <!-- Tela de carregamento -->
   <div id="loading" aria-hidden="true">
     <div class="loading-mark">
@@ -26,11 +32,13 @@
   <main id="app" class="hidden">
     <div class="card">
 
-      <!-- Capa (placeholder). Troque o background em style.css (.cover) por uma imagem sua quando quiser -->
-      <div class="cover"></div>
+      <!-- Capa -->
+      <div class="cover">
+        <img src="imgs/banner.jpg" alt="Banner de 14 bis">
+      </div>
 
       <div class="identity">
-        <div class="avatar" aria-hidden="true">14</div>
+        <img class="avatar" src="imgs/pfp.jpg" alt="Foto de perfil de 14 bis">
 
         <div class="name-row">
           <h1>14 bis</h1>
@@ -60,7 +68,6 @@
         <p>
           Fala! Aqui é o 14 bis. Ainda montando essa página, mas a ideia é contar
           um pouco sobre quem eu sou, no que eu curto mexer e o que ando fazendo.
-          Edita esse parágrafo no <code>index.html</code> quando quiser.
         </p>
       </section>
 
