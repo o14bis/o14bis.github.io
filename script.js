@@ -1,21 +1,39 @@
 // ---------- Rádio de fundo ----------
 const radio = document.getElementById("radio");
 const radioToggle = document.getElementById("radio-toggle");
+const radioLabel = radioToggle.querySelector("span");
 
 function playRadio() {
-  radio.play()
-    .then(() => radioToggle.setAttribute("aria-pressed", "true"))
-    .catch((err) => {
-      console.error("Não consegui tocar o rádio:", err);
-      radioToggle.setAttribute("aria-pressed", "false");
-      radioToggle.querySelector("span").textContent = "rádio: erro ao tocar";
-    });
+  radio.play().catch((err) => {
+    console.error("Não consegui tocar o rádio:", err);
+    radioLabel.textContent = "rádio: erro ao tocar";
+  });
 }
 
-// Se nenhuma das fontes acima (todas as <source>) conseguir carregar, mostra isso no botão
+radioToggle.addEventListener("click", () => {
+  if (radio.paused) {
+    playRadio();
+  } else {
+    radio.pause();
+  }
+});
+
+// O botão reflete o estado real do áudio (não o que a gente "acha" que ele deveria estar)
+radio.addEventListener("waiting", () => {
+  radioLabel.textContent = "carregando rádio…";
+});
+radio.addEventListener("playing", () => {
+  radioToggle.setAttribute("aria-pressed", "true");
+  radioLabel.textContent = "rádio lofi";
+});
+radio.addEventListener("pause", () => {
+  radioToggle.setAttribute("aria-pressed", "false");
+  radioLabel.textContent = "rádio lofi";
+});
+// Se nenhuma das fontes (todas as <source>) conseguir carregar, mostra isso no botão
 radio.addEventListener("error", () => {
   console.error("Erro no elemento de áudio:", radio.error);
-  radioToggle.querySelector("span").textContent = "rádio indisponível";
+  radioLabel.textContent = "rádio indisponível";
 });
 
 radioToggle.addEventListener("click", () => {
