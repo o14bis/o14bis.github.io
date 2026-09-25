@@ -21,7 +21,8 @@
 
   <!-- Rádio de fundo (SomaFM Groove Salad — troque o src por outro canal deles se quiser: https://somafm.com/listen/ ) -->
   <audio id="radio" preload="none" loop>
-    <source src="https://ice.somafm.com/groovesalad" type="audio/mpeg">
+    <source src="https://ice1.somafm.com/groovesalad-128-mp3" type="audio/mpeg">
+    <source src="https://ice2.somafm.com/groovesalad-128-mp3" type="audio/mpeg">
   </audio>
   <button id="radio-toggle" class="radio-toggle" aria-pressed="false">
     <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -29,13 +30,14 @@
     <span>rádio lofi</span>
   </button>
 
-  <!-- Tela de carregamento -->
-  <div id="loading" aria-hidden="true">
+  <!-- Tela de carregamento / "clique pra entrar" -->
+  <div id="loading" role="button" tabindex="0" aria-label="Clique para entrar">
     <div class="loading-mark">
       <span class="loading-dot"></span>
       <span class="loading-dot"></span>
       <span class="loading-dot"></span>
     </div>
+    <p class="loading-hint">clique pra entrar</p>
   </div>
 
   <!-- Conteúdo principal -->
