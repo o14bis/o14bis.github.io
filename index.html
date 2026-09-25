@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#0d1a14">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,6 +18,16 @@
     <source src="imgs/background.mp4" type="video/mp4">
   </video>
   <div class="bg-overlay" aria-hidden="true"></div>
+
+  <!-- Rádio de fundo (SomaFM Groove Salad — troque o src por outro canal deles se quiser: https://somafm.com/listen/ ) -->
+  <audio id="radio" preload="none" loop>
+    <source src="https://ice.somafm.com/groovesalad" type="audio/mpeg">
+  </audio>
+  <button id="radio-toggle" class="radio-toggle" aria-pressed="false">
+    <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+    <span>rádio lofi</span>
+  </button>
 
   <!-- Tela de carregamento -->
   <div id="loading" aria-hidden="true">
@@ -74,6 +84,13 @@
 
       <!-- Painel: Mídias -->
       <section class="panel" id="panel-midias" role="tabpanel" aria-labelledby="tab-midias">
+        <div class="postit">
+          <span>sem imagens ainda :P</span>
+        </div>
+        <!--
+          quando tiver fotos de verdade, apaga a div.postit acima e descomenta o bloco abaixo,
+          trocando os <button> por <img> dentro de cada media-item
+
         <p class="panel-hint">clique numa imagem pra dar zoom</p>
         <div class="media-grid">
           <button class="media-item" data-index="0"><span>foto 1</span></button>
@@ -83,6 +100,7 @@
           <button class="media-item" data-index="4"><span>foto 5</span></button>
           <button class="media-item" data-index="5"><span>foto 6</span></button>
         </div>
+        -->
       </section>
 
       <!-- Painel: Links -->
