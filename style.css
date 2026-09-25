@@ -117,7 +117,7 @@ body {
 .identity {
   padding: 0 24px 20px;
   margin-top: -34px;
-  --avatar-x: 90px; /* aumenta esse número pra mover a pfp pra direita, diminui pra mover pra esquerda */
+  --avatar-x: 30px; /* aumenta esse número pra mover a pfp pra direita, diminui pra mover pra esquerda */
 }
 
 .avatar {
