@@ -19,15 +19,12 @@
   </video>
   <div class="bg-overlay" aria-hidden="true"></div>
 
-  <!-- Rádio de fundo (SomaFM Groove Salad — troque o src por outro canal deles se quiser: https://somafm.com/listen/ ) -->
-  <audio id="radio" preload="none" loop>
-    <source src="https://ice5.somafm.com/groovesalad-128-mp3" type="audio/mpeg">
-    <source src="https://ice2.somafm.com/groovesalad-128-mp3" type="audio/mpeg">
-  </audio>
+  <!-- Player de música. As faixas vêm da pasta /musics do repositório (veja script.js) -->
+  <audio id="radio" preload="none"></audio>
   <button id="radio-toggle" class="radio-toggle" aria-pressed="false">
     <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
     <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-    <span>rádio lofi</span>
+    <span>carregando músicas…</span>
   </button>
 
   <!-- Tela de carregamento / "clique pra entrar" -->
